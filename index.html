@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SonicStars</title>
+<meta name="description" content="Audio-driven warp-field and spectrum highway visualizer.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stage"></canvas>
+<audio id="audio" preload="auto"></audio>
+<input id="file" type="file" accept="audio/*,.lrc,.flac,.opus,.m4a" multiple hidden>
+
+<div id="lyrics" aria-live="polite">
+  <div id="lyric-prev"></div>
+  <div id="lyric-cur"></div>
+  <div id="lyric-next"></div>
+</div>
+
+<header id="top" class="fade">
+  <div class="brand">
+    <div class="name">SONICSTARS</div>
+    <div class="sub">AUDIO VISUAL FIELD</div>
+  </div>
+  <div id="status"></div>
+  <div class="pill"><span class="dot"></span><span id="mode">DEMO ACTIVE</span></div>
+</header>
+
+<section id="hud" class="fade">
+  <div class="accent-rule"></div>
+  <div class="row head">
+    <div class="titles">
+      <div class="label">NOW VISUALIZING</div>
+      <div id="title">SonicStars procedural demo</div>
+    </div>
+    <div id="time">0:00 / 0:00</div>
+  </div>
+  <div id="progress"><div id="progress-fill"></div></div>
+  <div class="metrics">
+    <div><span>AVG ENERGY</span><b id="m-avg">0</b></div>
+    <div><span>BASS</span><b id="m-bass">0</b></div>
+    <div><span>DRIVE</span><b id="m-drive" class="accent">0%</b></div>
+    <div><span>WARP SPEED</span><b id="m-speed">0.0</b></div>
+  </div>
+  <div class="row controls">
+    <div class="buttons">
+      <button id="open" class="primary">Open audio / .lrc</button>
+      <span class="sep"></span>
+      <button id="back" title="Back 5s">−5s</button>
+      <button id="play">Pause</button>
+      <button id="fwd" title="Forward 5s">+5s</button>
+      <button id="stop">Stop</button>
+      <button id="loop">Loop</button>
+      <input id="volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+      <button id="fs" title="Fullscreen (F)">⛶</button>
+    </div>
+    <div id="hint"></div>
+  </div>
+</section>
+
+<div id="drop">Drop audio (and optional .lrc) to visualize</div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
